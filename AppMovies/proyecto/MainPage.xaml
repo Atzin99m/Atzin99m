@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovies.MainPage">
+
+    <StackLayout>
+        <Label Text="Rock altenative indie progressive" TextColor="White"/>
+
+        <Entry Placeholder="Correo Electronico" x:Name="EmailTxt" PlaceholderColor="White" TextColor="White"/>
+        <Entry Placeholder="Contraseña" x:Name="PassTxt" PlaceholderColor="White" TextColor="White"/>
+        <Entry Placeholder="Respuesta" x:Name="AnsTxt" PlaceholderColor="White" TextColor="White"/>
+        <Button Text="Iniciar Sesión" x:Name="Start"  Clicked="Start_Clicked" BackgroundColor="Gray" TextColor="#000000" CornerRadius="15"/>
+    </StackLayout>
+
+</ContentPage>

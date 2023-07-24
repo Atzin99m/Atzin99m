@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovies.Pelicula" Title="Peliculas">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <SearchBar x:Name="searchbar" BackgroundColor="White" SearchButtonPressed="searchbar_SearchButtonPressed"/>
+                <Label Text="¡........Servicio no disponible......!" x:Name="label1"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" IsVisible="false" />
+                <WebView x:Name="webview" WidthRequest="100" HeightRequest="1000" Navigated="webview_navigated" Navigating="webview_navigating"/>
+            </StackLayout>
+            <Grid x:Name="vistaopacada" Opacity=".4" BackgroundColor="Purple" IsVisible="true">
+                <ActivityIndicator x:Name="indicador" IsRunning="True" HorizontalOptions="Center" Color="DimGray"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovies.Eventos">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                
+                </Grid.ColumnDefinitions>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                <Label Text="¡Eventos que han pasado en la Semana!"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                  <StackLayout>
+                    <Label Text="¡Este Jueves se  estreno de una gran pelicula que lleva más de un 1 año y medio 
+                           de espera la cual es 'Space Jam: LeBron James' el cual contara la historia de LeBron james un jugador de BasketBall
+                           el cual intentara jugar con los emiticos personajes de Looney Toons para salvar a su hijo de un peligro.!"
+                 VerticalOptions="EndAndExpand"  
+                HorizontalOptions="EndAndExpand" />
+                        <Grid>
+                            <Image Source="spacej.jpeg" Aspect="AspectFit"/>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                        <Label Text="" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="¡En Octubre se espera el regreso del antiheroe más conociddo de Marvel a la pantalla grande.
+                           Hablamos de la segunda entrega de Venom la cual se tienen dudas sobre el desarrollo de los personajes como Carnage.!"
+            VerticalOptions="EndAndExpand" 
+                HorizontalOptions="EndAndExpand" />
+                        <Grid>
+                            <Image Source="carnudo.jpeg"/>
+                        </Grid>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                        <Label Text="" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="¡La calle del terror llega a su fin con su tercera entrega 1666, donde los protagonistas tendran que descubrir el origen de la maldición de ShaddySide para que puedan desahcerse de ella.!"
+            VerticalOptions="EndAndExpand" 
+                HorizontalOptions="EndAndExpand" />
+                        <Grid>
+                            <Image Source="desconocida.jpeg"/>
+                        </Grid>
+
+                    </StackLayout>
+
+                </StackLayout>
+          
+              
+            
+            
+            
+                
+            
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

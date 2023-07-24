@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="AppMovies.Soundtracks">
+
+    <Grid>
+        <Grid>
+        <StackLayout>
+         <Label Text="TrailerVenom" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+         <Button Text="Play" x:Name="Start"  Clicked="Venom_Clicked" BackgroundColor="Gray" TextColor="#000000" CornerRadius="15"/>
+                <StackLayout>
+                    <Label  Text="TrailerCruella" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    <Button Text="Play" x:Name="Start2"  Clicked="Cruella_Clicked" BackgroundColor="GreenYellow" TextColor="#000000" CornerRadius="15"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label  Text="TrailerRF" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    <Button Text="Play" x:Name="Start3"  Clicked="RF_Clicked" BackgroundColor="Honeydew" TextColor="#000000" CornerRadius="15"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label  Text="TrailerConjuro" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    <Button Text="Play" x:Name="Start4"  Clicked="Conjuro_Clicked" BackgroundColor="Indigo" TextColor="White" CornerRadius="15"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label  Text="TrailerNaruto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    <Button Text="Play" x:Name="Start5"  Clicked="Naruto_Clicked" BackgroundColor="OrangeRed" TextColor="#000000" CornerRadius="15"/>
+                    <StackLayout>
+                        <Label  Text="TrailerMitchells" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+                        <Button Text="Play" x:Name="Start6"  Clicked="Mitchells_Clicked" BackgroundColor="Gold" TextColor="#000000" CornerRadius="15"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+   
+        
+    </Grid> 
+
+</ContentPage>

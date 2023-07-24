@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovies.Cine"
+             Title="MenúPrincipal">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+    <Grid>
+        <TableView Intent="Menu" HasUnevenRows="True" RowHeight="75" x:Name="MenúPrincipal">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell Tapped="Soundtracks" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="soundtracks.jpg"/>
+                            <Label Text="Soundracks/Trailers Movies" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell Tapped="Cines"
+                              Height="75">
+                              
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="sala.jpg"/>
+                            <Label Text="Cines" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell Tapped="Peliculas" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="pelicula.jpg"/>
+                            <Label Text="Peliculas" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+
+                <TableSection>
+                    <ViewCell Tapped="Funciones" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="cartelera.jpg"/>
+                            <Label Text="Funciones" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell Tapped="Eventos" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="eventos.jpg"/>
+                            <Label Text="Eventos" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell Tapped="Preestrenos" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="preestrenos.jpg"/>
+                            <Label Text="Preestrenos" VerticalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell  Tapped="Informacion" Height="75">
+                        <StackLayout Padding="15,5,15,5" Orientation="Horizontal" BackgroundColor="Azure">
+                            <Image Source="ska.jpg"/>
+                            <Label Text="Información" VerticalOptions="Center" TextColor="Gray"/>
+                            <Button Text="salir"  Clicked="salir_Clicked" BackgroundColor="Gray" TextColor="#000000" CornerRadius="15"/>
+
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+      
+    </Grid>
+    
+</ContentPage>

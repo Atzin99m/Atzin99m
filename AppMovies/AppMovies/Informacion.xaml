@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovies.Informacion" 
+             Title="Más sobre los desarrolladores">
+    <ScrollView>
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+   
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+         
+        </Grid.ColumnDefinitions>
+            
+            <StackLayout>
+                <StackLayout>
+                    <Label TextColor="Green" Text="Miguel Alonso Rodriguez sauceso"/>
+                </StackLayout>
+                <Label
+            Grid.Column="1"
+            Text="Estudiante de la UPVM en Ingeniería en Tecnologías de la Información, me gusta
+	    mucho escuchar musica, mi artista favorito es Bruno Mars y mi banda favorita es 
+	    Foster The people, mi jugador favorito, asi tambien como mi idiolo, es el jugador
+	    brasileño, Neymar JR"   VerticalOptions="EndAndExpand" 
+                HorizontalOptions="EndAndExpand"/>
+                <Grid HorizontalOptions="Center">
+                    <Image Source="Neymar.jpg"/>
+                </Grid>
+                <StackLayout>
+                    <Label TextColor="Black" Text="Atzin Mauricio Luna Ramirez"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label
+            Grid.Column="2"
+            Text="Soy Atzin Mauricio Luna Ramírez, Estudiante de la UPVM en Ingeniería en Tecnologías de la Información, 
+             Me gusta mucho tocar la guitarra, jugar videojuegos, ver series y peliculas como también lee, escuchar podcast y ver videos. Me gusta la música en general a excepción de la música urbana actual y uno de mis artistas y guitarritas favoritos es Gustavo Cerati como también me gusta la banda Interpol." 
+                 VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+                    <Grid>
+                        <Image Source="interpol.jpg" HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFit"/>
+                    </Grid>
+                    <Image Source="Cerati.jpg"  HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFit"/>
+                    <Frame
+            CornerRadius="10"
+            VerticalOptions="End"
+            HorizontalOptions="End"          
+            Padding="8"
+            BackgroundColor="Black">
+
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+
+        
+            
+                
+         
+        
+        
+        </Grid>
+    </ScrollView>
+</ContentPage>

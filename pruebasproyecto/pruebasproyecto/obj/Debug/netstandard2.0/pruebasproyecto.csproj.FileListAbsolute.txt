@@ -1,0 +1,14 @@
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.csproj.AssemblyReference.cache
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.AssemblyInfoInputs.cache
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.AssemblyInfo.cs
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.csproj.CoreCompileInputs.cache
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.dll
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\ref\pruebasproyecto.dll
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\pruebasproyecto.pdb
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\bin\Debug\netstandard2.0\pruebasproyecto.deps.json
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\bin\Debug\netstandard2.0\pruebasproyecto.dll
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\bin\Debug\netstandard2.0\ref\pruebasproyecto.dll
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\bin\Debug\netstandard2.0\pruebasproyecto.pdb
+C:\proyectosMovilesUPVM\pruebasproyecto\pruebasproyecto\obj\Debug\netstandard2.0\XamlC.stamp

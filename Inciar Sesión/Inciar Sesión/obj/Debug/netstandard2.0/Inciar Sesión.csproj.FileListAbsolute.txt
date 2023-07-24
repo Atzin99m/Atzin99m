@@ -1,0 +1,15 @@
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\bin\Debug\netstandard2.0\Inciar Sesión.deps.json
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\bin\Debug\netstandard2.0\Inciar Sesión.dll
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\bin\Debug\netstandard2.0\ref\Inciar Sesión.dll
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\bin\Debug\netstandard2.0\Inciar Sesión.pdb
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.csproj.AssemblyReference.cache
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inicio.xaml.g.cs
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.AssemblyInfoInputs.cache
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.AssemblyInfo.cs
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.csproj.CoreCompileInputs.cache
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\XamlC.stamp
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.dll
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\ref\Inciar Sesión.dll
+C:\proyectosMovilesUPVM\Inciar Sesión\Inciar Sesión\obj\Debug\netstandard2.0\Inciar Sesión.pdb

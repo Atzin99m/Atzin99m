@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQL_LITE.MainPage"
+             BackgroundColor="DarkSlateGray">
+
+    <StackLayout>
+        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+            <Label Text="Registro del Alumnado" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Entry x:Name="Name" Placeholder="Nombre"/>
+        <Entry x:Name="LastName" Placeholder="Apellido Paterno"/>
+        <Entry x:Name="LastNameM" Placeholder="Apellido Materno"/>
+        <Entry x:Name="Email" Placeholder="Correo"/>
+        <Button x:Name="Insert" Text="Registrar" Clicked="Insert_Clicked"/>
+        <ListView x:Name="listst">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding matricula}" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="{Binding nombre}" Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="{Binding materno}" Grid.Row="0" Grid.Column="2"/>
+                            <Label Text="{Binding paterno}" Grid.Row="0" Grid.Column="3"/>
+                            <Label Text="{Binding correo}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

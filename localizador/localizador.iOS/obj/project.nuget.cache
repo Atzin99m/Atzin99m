@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "ctPa1axNzGPsoqHl+vFJCwm3sz9U+tsGtaoHJJUNgIqNSCzebxgMU7ZmZANOHPpvKWZ1mStrgHKVQto3zdDhBQ==",
+  "success": true,
+  "projectFilePath": "C:\\proyectosMovilesUPVM\\localizador\\localizador.iOS\\localizador.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\atzin\\.nuget\\packages\\plugin.permissions\\3.0.0.12\\plugin.permissions.3.0.0.12.nupkg.sha512",
+    "C:\\Users\\atzin\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\atzin\\.nuget\\packages\\xam.plugin.geolocator\\4.5.0.6\\xam.plugin.geolocator.4.5.0.6.nupkg.sha512",
+    "C:\\Users\\atzin\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\atzin\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
+  ],
+  "logs": []
+}

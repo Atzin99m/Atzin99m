@@ -1,0 +1,6 @@
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\SQL_LITE.csproj.AssemblyReference.cache
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\SQL_LITE.AssemblyInfoInputs.cache
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\SQL_LITE.AssemblyInfo.cs
+C:\proyectosMovilesUPVM\SQL_LITE\SQL_LITE\obj\Debug\netstandard2.0\SQL_LITE.csproj.CoreCompileInputs.cache
