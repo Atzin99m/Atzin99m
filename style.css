@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin: 0;
+}
+
+.formulario {
+    max-width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-height: 70px;
+    text-align: center;
+}
+
+.card-header img {
+    max-height: 60px;
+    width: auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    font-size: 1rem;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.tabla-registros {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: auto;
+    min-width: 1000px;
+}
+
+.tabla-registros th,
+.tabla-registros td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabla-registros thead {
+    background-color: #f0f0f0;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}

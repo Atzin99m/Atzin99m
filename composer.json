@@ -1,0 +1,18 @@
+{
+    "name": "becsistemas/proyecto_ordenmntto",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Becsistemas\\ProyectoOrdenmntto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Atzin"
+        }
+    ],
+    "require": {
+        "phpoffice/phpexcel": "*",
+        "phpoffice/phpspreadsheet": "^4.4"
+    }
+}

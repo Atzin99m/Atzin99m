@@ -1,0 +1,19 @@
+Array
+(
+    [id] => 1
+    [no_empleado] => 88484
+    [nombre] => HERNAN
+    [turno] => MATUTINO
+    [no_orden] => 2
+    [recepcion] => 2025-08-13 10:50:01
+    [recep_maquina] => 2025-08-07 10:50:01
+    [tipo] => ELECTRICO
+    [hora_ini] => 15:00:00
+    [hora_fin] => 17:00:00
+    [time_area] => 00:00:00
+    [tiempo_extra] => 00:10:00
+    [total_horas] => 130
+    [trabajo_realizado] => Se cambio un foco
+    [observaciones] => 81841215
+    [estatus] => Terminado
+)

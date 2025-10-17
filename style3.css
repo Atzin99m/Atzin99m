@@ -1,0 +1,24 @@
+ body { font-family: Arial, sans-serif; }
+    .container { max-width: 900px; margin: 30px auto; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #999; padding: 8px; text-align: left; }
+    th { background: #f0f0f0; }
+    .form-inline { display: flex; gap: 10px; align-items: center; }
+    .form-inline input, .form-inline select { padding: 4px; }
+    .pendiente { background: #fffbe6; }
+    .resuelta { background: #e6ffe6; }
+    .espera { background: #ffe6e6; }
+    .button-group { display: flex; justify-content: space-between; gap: 10px; }
+    .button-group button { padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    .button-group button:hover { background-color: #0056b3; }
+    .comentarios { font-size: 1rem; }
+    .formulario { max-width: 700px; margin: auto; }
+    .card-header img { max-width: 100%; height: auto; }
+    @media (max-width: 600px) {
+      .formulario, .container, .card, .card-body { padding: 0 !important; }
+      .card-header h1 { font-size: 1.2rem; }
+      label, input, select, textarea, button { font-size: 1rem !important; }
+      .table-responsive { overflow-x: auto; }
+      .table th, .table td { font-size: 0.9rem; padding: 4px; }
+      .button-group { display: flex; flex-direction: column; gap: 8px; }
+    }

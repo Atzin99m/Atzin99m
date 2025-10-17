@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+    <style>
+        .formulario {
+            max-width: 700px;
+            margin: auto;
+        }
+        
+        .card-header img {
+            height: 50px;
+            margin-right: 16px;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="formulario">
+        <div class="container">
+            <div class="card shadow">
+
+                <div class="card-header bg-primary text-white text-center d-flex align-items-center" style="background:#0d6efd; min-height:70px;">
+                    <img src="http://localhost/Proyecto_Orden%20MNTTO/img/CAZELlogos-02.png" alt="Logo Cazel" class="img-fluid" />
+                    <span class=" flex-grow-1 " style="font-size:1.3rem; font-weight:bold; ">ORDEN DE TRABAJO DE MANTENIMIENTO</span>
+                </div>
+
+                <div class="card-body ">
+                    <form id="tecnicoForm " method="POST ">
+
+                        <div class="mb-3 ">
+                            <label for="idGenerado ">N° Orden:</label>
+                            <input type="text " class="form-control " id="idGenerado " readonly>
+                        </div>
+
+                        <div class="row mb-3 ">
+                            <div class="col-md-6 mb-2 ">
+                                <label for="solicitante ">Solicitante</label>
+                                <input type="text " id="solicitante " name="solicitante " class="form-control " required>
+                            </div>
+                            <div class="col-md-6 mb-2 ">
+                                <label for="mopcion ">Departamento:</label>
+                                <select id="mopcion " name="mopcion " class="form-select ">
+                <option value=" ">-- Selecciona un departamento --</option>
+                <option value="Operaciones ">Operaciones</option>
+                <option value="Produccion ">Producción</option>
+                <option value="Moldes ">Moldes</option>
+              </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 ">
+                            <div class="col-md-6 mb-2 ">
+                                <label for="nave ">Nave:</label>
+                                <select id="nave " name="nave " class="form-select " required>
+                <option value=" ">-- Selecciona una nave --</option>
+                <option value="1 ">NAVE 1</option>
+                <option value="2 ">NAVE 2</option>
+                <option value="3 ">NAVE 3</option>
+              </select>
+                            </div>
+
+                            <div class="col-md-6 mb-2 ">
+                                <label for="maquina ">Máquina:</label>
+                                <select id="maquina " name="maquina " class="form-select " disabled></select>
+                            </div>
+                        </div>
+
+                        <script>
+                            const maquinasPorNave = {
+                                1: ["101B ", "102B ", "103A ", "104B ", "105A ", "106B ", "107C ", "108C ", "109C ", "109B ", "111B ", "111A ", "112A ",
+                                    "112B ", "113B ", "113C ", "114B ", "114C ", "115B ", "116C ", "117B ", "118A ", "121B ", "122A ",
+                                    "123A ", "124A ", "125A ", "126 ", "127 ", "128 ", "129 ", "130 ", "131 "
+                                ],
+                                2: ["202B ", "206 ", "207 ", "208A ", "209 ", "210 ", "211 ", "211A ", "212A ", "214 ", "215A ", "217A ", "218A ", "219A "],
+                                3: ["301 ", "302A ", "303 ", "304A ", "305A ", "306A ", "307A ", "307B ", "308 ", "308B ", "309A ", "310B ", "311A ", "313B ",
+                                    "314A ", "315 ", "315A ", "316A ", "325A "
+                                ]
+                            };
+                            const nave = document.getElementById("nave ");
+                            const maquinaSelect = document.getElementById("maquina ");
+                            nave.addEventListener("change ", () => {
+                                maquinaSelect.innerHTML = '<option value=" ">-- Selecciona una máquina --</option>';
+                                if (nave.value) {
+                                    maquinaSelect.disabled = false;
+                                    maquinasPorNave[nave.value].forEach(num => {
+                                        const option = document.createElement("option ");
+                                        option.value = num;
+                                        option.textContent = num;
+                                        maquinaSelect.appendChild(option);
+                                    });
+                                } else {
+                                    maquinaSelect.disabled = true;
+                                }
+                            });
+                        </script>
+
+                        <div class="mb-3 ">
+                            <label for="fecha_emision ">Fecha y Hora de Emisión:</label>
+                            <input type="datetime-local " id="fecha_emision " name="fecha_emision " class="form-control " readonly>
+                        </div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded ", () => {
+                                const input = document.getElementById("fecha_emision ");
+                                const ahora = new Date();
+                                const offset = ahora.getTimezoneOffset();
+                                const ajustada = new Date(ahora.getTime() - (offset * 60000));
+                                input.value = ajustada.toISOString().slice(0, 16);
+                            });
+                        </script>
+
+                        <!-- Nivel 1 -->
+                        <div class="mb-3 ">
+                            <label for="nivel1 " class="form-label ">Descripción de la necesidad:</label>
+                            <select id="nivel1 " class="form-select ">
+              <option value=" ">-- Selecciona una opción --</option>
+              <option value="Servicios ">Servicios Generales</option>
+              <option value="Maquinas ">Máquina</option>
+              <option value="Equipos Perifericos ">Equipos Periféricos</option>
+              <option value="Dispositivo ">Dispositivo</option>
+            </select>
+                        </div>
+
+                        <div id="nivel2 " class="mb-3 "></div>
+                        <div id="nivel3 " class="mb-3 "></div>
+
+                        <div class="mb-3 ">
+                            <label>¿Paro de Equipo?</label><br>
+                            <label><input type="radio " name="paro " value="si "> Sí</label>
+                            <label><input type="radio " name="paro " value="no "> No</label>
+                        </div>
+
+                        <button type="submit " class="btn btn-primary ">Registrar y enviar</button>
+
+                    </form>
+                    <div class="tabla-contenedor mt-3 ">
+                        <div class="table-responsive ">
+                            <table class="table table-bordered table-striped ">
+
+                                <thead>
+                                    <tr>
+                                        <th>Orden</th>
+                                        <th>Emisión</th>
+                                        <th>Descripción</th>
+                                        <th>Máquina</th>
+                                        <th>Solicitado Por</th>
+                                        <th>Paro</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="tabla-registros ">
+                                    <!-- Aquí van los registros dinámicos -->
+                                    <script src="script_b.js "></script>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js "></script>
+
+    <script>
+        const opciones = {
+            "Servicios ": {
+                "Agua ": ["Fuga de Agua "],
+                "Aire ": [],
+                "Electricidad ": []
+            },
+            "Maquinas ": {
+                "Fugas de Aceite ": ["Clamp ", "Core ", "Valve Gate ", "Pistones "],
+                "Unidad de Inyección ": [],
+                "Unidad de Cierre ": []
+            },
+            "Equipos Perifericos ": {
+                "Termoregulador ": ["Habilitar Termoregulador ", "No levanta temperatura ", "Fuga de Agua ", "Variación de Temperatura "],
+                "Robot ": ["Eje X ", "Eje Y ", "Eje Z ", "Sistema Neumático ", "Alarma de Robot "],
+                "Controlador de Temperatura ": ["Habilitar Controlador ", "Variación en Zona "],
+                "Tolva Secadora ": [],
+                "Cargador ": ["No carga Material "]
+            },
+            "Dispositivo ": {
+                "Habilitar Dispositivo ": [],
+                "Sistema Eléctrico ": [],
+                "Sistema Neumático ": []
+            }
+        };
+
+        $(document).ready(() => {
+            $('#nivel1').select2({
+                placeholder: "Selecciona una opción ",
+                width: '100%'
+            });
+
+            $('#nivel1').on('change', function() {
+                const categoria = $(this).val();
+                $('#nivel2').html('');
+                $('#nivel3').html('');
+                if (!categoria) return;
+
+                let html = `<label class="form-label ">Subcategoría:</label>
+    <select id="subcat " class="form-select ">
+      <option value=" ">-- Selecciona subcategoría --</option>`;
+
+                for (let subcat in opciones[categoria]) {
+                    html += `<option value="${subcat} ">${subcat}</option>`;
+                }
+                html += "</select>";
+                $('#nivel2').html(html);
+                $('#subcat').select2({
+                    placeholder: "Selecciona subcategoría",
+                    width: '100%'
+                });
+                $('#subcat').on('change', function() {
+                    const subcat = $(this).val();
+                    $('#nivel3').html('');
+                    const detalles = opciones[categoria][subcat];
+                    if (!detalles || detalles.length === 0) return;
+                    let detHtml = `<label class="form-label">Detalle:</label>
+                    <select id="detalle" class="form-select">
+        <option value="">-- Selecciona detalle --</option>`;
+                    detalles.forEach(d => detHtml += `<option value="${d}">${d}</option>`);
+                    detHtml += "</select>";
+                    $('#nivel3').html(detHtml);
+                    $('#detalle').select2({
+                        placeholder: "Selecciona detalle",
+                        width: '100%'
+                    });
+                    /*if (["Fugas de Aceite", "Robot", "Termoregulador", "Cargador"].includes(subcat))
+                                       { $('#nivel3').append(` `); }*/
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

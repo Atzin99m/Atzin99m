@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen Semanal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="resumen.js" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="resumen-semanal">
+  <div>
+    <img src="http://localhost/Proyecto_Orden%20MNTTO/img/Imagen1.jpg" alt="Logo" style="height: 100px; width: auto; background: transparent;">
+   <span class="flex-grow-1" style="font-size: 3.3rem; font-weight: bold; color: #000; 
+   text-shadow: 1px 1px 2px #fff;"><h1>Resumen Semanal</h1></span> 
+    <form id="formResumen">
+      <label for="Maquina">Máquina:</label>
+     <select id="Maquina" name="Maquina" class="form-select styled-input" required>
+                
+                <optgroup label="NAVE 1">
+                  <option>101</option>
+                  <option>102</option>
+                  <option>103</option>
+                  <option>104</option>
+                  <option>105</option>
+                  <option>105A</option>
+                  <option>106</option>
+                  <option>106B</option>
+                  <option>107</option>
+                  <option>107C</option>
+                  <option>108</option>
+                  <option>108C</option>
+                  <option>109</option>
+                  <option>109 B.</option>
+                  <option>109B</option>
+                  <option>109C</option>
+                  <option>110</option>
+                  <option>111</option>
+                  <option>111A</option>
+                  <option>111B</option>
+                  <option>111C</option>
+                  <option>112</option>
+                  <option>112A</option>
+                  <option>112B</option>
+                  <option>113</option>
+                  <option>114</option>
+                  <option>114A</option>
+                  <option>115</option>
+                  <option>115B</option>
+                  <option>116</option>
+                  <option>118</option>
+                  <option>121</option>
+                  <option>121B</option>
+                  <option>122</option>
+                  <option>122A</option>
+                  <option>123</option>
+                  <option>123A</option>
+                  <option>124</option>
+                  <option>126</option>
+                  <option>127</option>
+                  <option>128</option>
+                  <option>131</option>
+                </optgroup>
+                <optgroup label="NAVE 2">
+                  <option>201</option>
+                  <option>201B</option>
+                  <option>202</option>
+                  <option>204</option>
+                  <option>206</option>
+                  <option>207</option>
+                  <option>208</option>
+                  <option>209</option>
+                  <option>210</option>
+                  <option>211</option>
+                  <option>211A</option>
+                  <option>214</option>
+                  <option>215</option>
+                  <option>215B</option>
+                  <option>216</option>
+                  <option>218</option>
+                  <option>219A</option>
+                </optgroup>
+                <optgroup label="NAVE 3">
+                  <option>301</option>
+                  <option>302</option>
+                  <option>303</option>
+                  <option>304</option>
+                  <option>304B</option>
+                  <option>305</option>
+                  <option>305A</option>
+                  <option>306</option>
+                  <option>306A</option>
+                  <option>307 B</option>
+                  <option>307A</option>
+                  <option>307B</option>
+                  <option>308</option>
+                  <option>308 B</option>
+                  <option>308B</option>
+                  <option>309</option>
+                  <option>309A</option>
+                  <option>309B</option>
+                  <option>310</option>
+                  <option>310B</option>
+                  <option>311</option>
+                  <option>312</option>
+                  <option>313</option>
+                  <option>314</option>
+                  <option>314A</option>
+                  <option>315</option>
+                  <option>315A</option>
+                  <option>316</option>
+                  <option>316A</option>
+                  <option>325</option>
+                  <option>325A</option>
+                </optgroup>
+                <option value="N/A">N/A</option>
+              </select>
+              <div id="registro-extra" ><label for="Departamento">Departamento:</label>
+     <select name="area" id="area" required>
+        <option value="">Selecciona un área</option>
+        <!-- <option value="Operaciones">Operaciones</option> -->
+        <option value="Produccion">Producción</option>
+        <option value="Almacen de Materia Prima">Almacen de Materia Prima</option>
+        <option value="Embarques">Embarques</option>
+        <option value="Calidad Administracion">Calidad Administración</option>
+        <option value="Moldes">Moldes</option>
+        <option value="Mantenimiento">Mantenimiento</option>
+        <option value="Operaciones">Operaciones</option>
+        <option value="Direccion General">Dirección General</option>
+        <option value="Contraloria">Contraloría</option>
+        <option value="Ingenieria">Ingeniería</option>
+        <option value="Calidad Operaciones">Calidad Operaciones</option>
+        <option value="Recursos Humanos">Recursos Humanos</option>
+        <option value="Materiales">Materiales</option>
+        <option value="Ventas">Ventas</option>
+        <option value="Sistemas">Sistemas</option>
+      </select>
+      
+    </form></div>
+      <label for="fechaInicio">Fecha de Inicio:</label>
+      <input type="date" id="fechaInicio" name="fechaInicio">
+      <label for="fechaFin">Fecha de Fin:</label>
+      <input type="date" id="fechaFin" name="fechaFin">
+      <button type="submit" class="btn btn-primary w-100">Descargar resumen</button>
+  </div>
+  <table id="tablaResumen" class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th class="text-center">Fecha</th>
+        <th class="text-center">Técnico</th>
+        <th class="text-center">No. Orden</th>
+        <th class="text-center">Máquina</th>
+        <th class="text-center">Hora Inicio</th>
+        <th class="text-center">Hora Fin</th>
+        <th class="text-center">Horas Extras</th>
+        <th class="text-center">Tiempo total en minutos</th>
+        <th class="text-center">Tipo de Mantenimiento</th>
+        <th class="text-center">Descripción del trabajo</th>
+        <th class="text-center">Acciones</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Comentarios/Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Los datos se llenarán dinámicamente con JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

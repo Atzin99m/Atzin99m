@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Técnicos</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+  th { background: #eee; }
+  input, select, button { padding: 6px; margin: 4px; }
+  input[readonly] { background: #f9f9f9; }
+</style>
+</head>
+<body>
+
+<h2>Registro de Técnicos</h2>
+
+<form id="form-tecnico">
+  <label>No. Empleado:</label>
+  <input list="listaTecnicos" id="no_empl" name="no_empl" required>
+  <datalist id="listaTecnicos"></datalist>
+
+  <label>Nombre:</label>
+  <input type="text" id="Nombre" name="Nombre" readonly>
+
+  <label>Turno:</label>
+  <input type="text" id="turno" name="turno" readonly><br>
+
+  <label>No. Orden:</label>
+  <input type="number" id="no_orden" name="no_orden" required>
+
+  <label>Tipo:</label>
+  <input type="text" id="Tipo" name="Tipo" required><br>
+
+  <label>Hora Inicio:</label>
+  <input type="time" id="Hr_ini" name="Hr_ini">
+
+  <label>Hora Fin:</label>
+  <input type="time" id="Hr_Fin" name="Hr_Fin">
+
+  <label>Tiempo Área:</label>
+  <input type="time" id="time_area" name="time_area">
+
+  <label>Tiempo Extra:</label>
+  <input type="time" id="t_extra" name="t_extra"><br>
+
+  <label>Trabajo Realizado:</label>
+  <input type="text" id="t_realizado" name="t_realizado" style="width:250px"><br>
+
+  <label>Observaciones:</label>
+  <input type="text" id="observaciones" name="observaciones" style="width:250px"><br>
+
+  <label>Estatus:</label>
+  <input type="text" id="Estatus" name="Estatus" required>
+
+  <input type="hidden" id="id" name="id" value="0">
+  <button type="submit">Guardar</button>
+</form>
+
+<h3>Lista de Técnicos</h3>
+<table id="tabla">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>No. Empl</th>
+      <th>Nombre</th>
+      <th>Turno</th>
+      <th>No. Orden</th>
+      <th>Tipo</th>
+      <th>Hr Ini</th>
+      <th>Hr Fin</th>
+      <th>Acciones</th>
+      <th>Observaciones</th>
+      <th>Estatus</th>
+      
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+// --- Cargar lista de técnicos únicos ---
+function cargarListaTecnicos() {
+  fetch('tecnicos.php?action=get_tecnicos')
+    .then(r => r.json())
+    .then(lista => {
+      const dl = document.getElementById('listaTecnicos');
+      dl.innerHTML = '';
+      lista.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.no_empl;
+        opt.label = `${t.Nombre} (${t.turno})`;
+        opt.dataset.nombre = t.Nombre;
+        opt.dataset.turno = t.turno;
+        dl.appendChild(opt);
+      });
+    });
+}
+
+// --- Autocompletar nombre y turno ---
+document.getElementById('no_empl').addEventListener('change', function() {
+  const valor = this.value.trim();
+  const opciones = document.querySelectorAll('#listaTecnicos option');
+  let encontrado = false;
+  opciones.forEach(opt => {
+    if (opt.value === valor) {
+      document.getElementById('Nombre').value = opt.label.split(' (')[0];
+      document.getElementById('turno').value = opt.label.match(/\((.*?)\)/)?.[1] || '';
+      encontrado = true;
+    }
+  });
+  if (!encontrado) {
+    document.getElementById('Nombre').value = '';
+    document.getElementById('turno').value = '';
+  }
+});
+
+// --- Guardar técnico ---
+document.getElementById('form-tecnico').addEventListener('submit', function(e){
+  e.preventDefault();
+  const datos = new FormData(this);
+  fetch('tecnicos.php', { method: 'POST', body: datos })
+    .then(r => r.json())
+    .then(resp => {
+      alert(resp.mensaje);
+      if (resp.success) {
+        this.reset();
+        document.getElementById('id').value = "0";
+        cargarDatos();
+      }
+    });
+});
+
+// --- Cargar tabla completa ---
+function cargarDatos() {
+  fetch('tecnicos.php')
+    .then(r => r.json())
+    .then(lista => {
+      const tbody = document.querySelector('#tabla tbody');
+      tbody.innerHTML = '';
+      lista.forEach(t => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${t.id}</td>
+          <td>${t.no_empl}</td>
+          <td>${t.Nombre}</td>
+          <td>${t.turno}</td>
+          <td>${t.no_orden}</td>
+          <td>${t.Tipo}</td>
+          <td>${t.Hr_ini||''}</td>
+          <td>${t.Hr_Fin||''}</td>
+          <td>${t.Estatus}</td>
+          <td><button onclick="editar(${t.id})">Editar</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    });
+}
+
+// --- Cargar registro al formulario ---
+function editar(id) {
+  fetch('tecnicos.php?no_empl='+id)
+    .then(r => r.json())
+    .then(registros => {
+      if(registros.length > 0) {
+        const t = registros[0];
+        document.getElementById('id').value = t.id;
+        document.getElementById('no_empl').value = t.no_empl;
+        document.getElementById('Nombre').value = t.Nombre;
+        document.getElementById('turno').value = t.turno;
+        document.getElementById('no_orden').value = t.no_orden;
+        document.getElementById('Tipo').value = t.Tipo;
+        document.getElementById('Hr_ini').value = t.Hr_ini || '';
+        document.getElementById('Hr_Fin').value = t.Hr_Fin || '';
+        document.getElementById('time_area').value = t.time_area || '';
+        document.getElementById('t_extra').value = t.t_extra || '';
+        document.getElementById('t_realizado').value = t.t_realizado;
+        document.getElementById('observaciones').value = t.observaciones;
+        document.getElementById('Estatus').value = t.Estatus;
+      }
+    });
+}
+
+// --- Inicialización ---
+window.addEventListener('DOMContentLoaded', () => {
+  cargarListaTecnicos();
+  cargarDatos();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orden de Trabajo de Mantenimiento</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    .comentarios { font-size: 1rem; }
+    .formulario { max-width: 700px; margin: auto; }
+    .card-header img { max-width: 100%; height: auto; }
+    @media (max-width: 300px) {
+      .formulario, .container, .card, .card-body { padding: 0 !important; }
+      .card-header h1 { font-size: 1.2rem; }
+      label, input, select, textarea, button { font-size: 1rem !important; }
+      .table-responsive { overflow-x: auto; }
+      .table th, .table td { font-size: 0.9rem; padding: 4px; }
+      .button-group { display: flex; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body class="bg-light">
+<div class="formulario">
+  <div class="container my-3">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white text-center d-flex align-items-center" style="background: #0d6efd; min-height: 70px;">
+        <img src="http://localhost/Proyecto_Orden%20MNTTO/img/Imagen1.jpg"
+             alt="Logo"
+             style="height: 50px; width: auto; background: transparent; margin-right: 16px;">
+        <span class="flex-grow-1" style="font-size: 1.3rem; font-weight: bold; color: #fff; text-shadow: 1px 1px 2px #000;">
+          ORDEN DE TRABAJO DE MANTENIMIENTO
+        </span>
+      </div>
+      <div class="card-body">
+        <form id="tecnicoForm"  method="POST" >
+          <div class="mb-3">
+            <label for="idGenerado">N° Orden:</label>
+            <input type="text" class="form-control" id="idGenerado" placeholder="idGenerado" onfocus="this.blur()" readonly>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-md-6 mb-2">
+              <label for="solicitante">Solicitante</label>
+              <input type="text" id="solicitante" name="solicitante" class="form-control" required>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <label for="mopcion">Departamento:</label>
+              <select id="mopcion" name="mopcion" class="form-select styled-input"> 
+                <option value="Operaciones">Operaciones</option>
+              
+                <option value="Produccion">Produccion</option>
+              
+                <option value="Moldes">Moldes</option>
+             
+               
+              </select>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <label for="Maquina">Máquina</label>
+              <select id="Maquina" name="Maquina" class="form-select styled-input" required>
+                <option value="N/A">N/A</option>
+                <optgroup label="NAVE 1">
+                  <option>101B</option>
+                  <option>101A</option>
+                  <option>103A</option>
+                  <option>104B</option>
+                  <option>105A</option>
+                  <option>106B</option>
+                  <option>107C</option>
+                  <option>108C</option>
+                  <option>109C</option>
+                  <option>109B</option>
+                  <option>111B</option>
+                  <option>111A</option>
+                  <option>112A</option>
+                  <option>112B</option>
+                  <option>113B</option>
+                  <option>113C</option>
+                  <option>114B</option>
+                  <option>114C</option>
+                  <option>115B</option>
+                  <option>116C</option>
+                  <option>117B</option>
+                  <option>118A</option>
+                  <option>121B</option>
+                  <option>122A</option>
+                  <option>123A</option>
+                  <option>124A</option>
+                  <option>125A</option>
+                  <option>126</option>
+                  <option>127</option>
+                  <option>128</option>
+                  <option>129</option>
+                  <option>130</option>
+                   <option>131</option>
+                </optgroup>
+                <optgroup label="NAVE 2">
+                  <option>202B</option>
+                  <option>203A</option>
+                  <option>204B</option>
+                  <option>205A</option>
+                  <option>206</option>
+                  <option>207</option>
+                  <option>208A</option>
+                  <option>209</option>
+                  <option>210</option>
+                  <option>211</option>
+                  <option>211A</option>
+                  <option>212A</option>
+                  <option>213A</option>
+                  <option>214</option>
+                  <option>215A</option>
+                  <option>216A</option>
+                  <option>217A</option>
+                  <option>218A</option>
+                  <option>219A</option>
+                  
+
+                </optgroup>
+                <optgroup label="NAVE 3">
+              <option>301</option>
+              <option>302A</option>
+              <option>303</option>
+              <option>304A</option>
+              <option>305A</option>
+              <option>306A</option>
+              <option>307A</option>
+              <option>307B</option>
+              <option>308</option>
+              <option>308B</option>
+              <option>309A</option>
+              <option>310B</option>
+              <option>311A</option>
+              <option>312A</option>
+              <option>314A</option>
+              <option>315</option>
+              <option>315A</option>
+              <option>316A</option>
+              <option>325A</option>
+
+                </optgroup>
+              </select>
+              
+            <label for="fecha_emision">Fecha y Hora de Emisión:</label>
+            <input type="datetime-local" id="fecha_emision" name="fecha_emision" class="form-control" readonly>
+             <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("fecha_emision");
+  const ahora = new Date();
+
+  // Obtener fecha y hora con formato correcto para datetime-local (YYYY-MM-DDTHH:MM)
+  const offset = ahora.getTimezoneOffset();
+  const ajustada = new Date(ahora.getTime() - (offset * 60000));
+  input.value = ajustada.toISOString().slice(0,16);
+});
+</script>
+          
+          </div>
+            </div>
+         
+       
+         
+          <div class="mb-3">
+            <label for="descripcion_necesidad">Descripción de la necesidad:</label>
+            <textarea id="descripcion_necesidad" name="descripcion_necesidad" class="form-control comentarios" rows="3"></textarea>
+          </div>
+     
+          <div class="mb-3">
+            <label for="prioridad">Prioridad:</label>
+            <select id="prioridad" name="prioridad" class="form-select">
+              <option value="Urgente">Urgente</option>
+              <option value="Normal">Normal</option>
+              <option value="P_prog">Paro Programado</option>
+              <option value="Permanente">O.S. Permanente</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="tipo-servicio">Tipo de Servicio:</label>
+            <select id="tipo-servicio" name="tipo-servicio" class="form-select">
+              <option>MttO Correctivo</option>
+              <option>MttO Mejora</option>
+              <option>Otro</option>
+            </select> 
+            <div class="mb-3">
+            <label>¿Paro de Equipo?</label>
+            <div>
+              <label><input type="radio" id="paro_si" name="paro" value="si"> Sí</label>
+              <label><input type="radio" id="paro_no" name="paro" value="no"> No</label>
+            </div>
+          </div> 
+           
+            <button type="submit" id="Registrar" name="Registrar" class="btn btn-primary">Registrar y enviar</button>
+          
+          </div>
+          
+         
+        </form>
+      </div>
+    </div>
+    <div class="tabla-contenedor mt-3">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+
+          <thead>
+            <tr>
+              <th>Orden</th>
+              <th>Emisión</th>
+              <th>Depto</th>
+            <th>Descripción</th>
+                            <th>Prioridad</th>
+              <th>Máquina o Molde</th>
+              <th>Solicitado Por</th>
+                  <th>Tipo de Servicio</th>
+              <th>Paro</th>
+              <th>Estatus</th>
+            </tr>
+          </thead>
+          <tbody class="tabla-registros">
+            <!-- Aquí van los registros dinámicos -->
+<script src="script_b.js"></script>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
