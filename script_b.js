@@ -1,66 +1,66 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const formulario = document.getElementById("tecnicoForm");
-    const tabla = document.querySelector("tbody");
-    const botonGuardar = document.querySelector("button[type='submit']");
+ document.addEventListener("DOMContentLoaded", function() {
+     const formulario = document.getElementById("tecnicoForm");
+     const tabla = document.querySelector("tbody");
+     const botonGuardar = document.querySelector("button[type='submit']");
 
-    formulario.addEventListener("submit", async function(e) {
-        e.preventDefault();
+     formulario.addEventListener("submit", async function(e) {
+         e.preventDefault();
 
-        // 🟢 Tomar valores de los selects dinámicos
+         const nivel1El = document.getElementById("nivel1");
+         const subcatEl = document.getElementById("subcat");
+         const detalleEl = document.getElementById("detalle");
 
-        const nivel1 = document.getElementById("nivel1") ? document.getElementById("nivel1").value : "";
-        const subcat = document.getElementById("subcat") ? document.getElementById("subcat").value : "";
-        const detalle = document.getElementById("detalle") ? document.getElementById("detalle").value : "";
-        // 🟢 Construye descripción combinada
-        const descripcion = [nivel1, subcat, detalle]
-            .filter(v => v && v.trim() !== "")
-            .join(" > ");
+         const nivel1 = nivel1El ? (nivel1El.value || "") : "";
+         const subcat = subcatEl ? (subcatEl.value || "") : "";
+         const detalle = detalleEl ? (detalleEl.value || "") : "";
 
-        const formData = new FormData(formulario);
-        formData.append("action", "register");
+         const descripcion = [nivel1, subcat, detalle]
+             .filter(function(v) { return v && v.trim() !== ""; })
+             .join(" > ");
 
-        // 🟢 Agrega la descripción generada al FormData
-        formData.append("descripcion", descripcion);
+         const formData = new FormData(formulario);
+         formData.append("action", "register");
+         formData.append("descripcion", descripcion);
 
-        const response = await fetch("connection.php", {
-            method: "POST",
-            body: formData
-        });
+         try {
+             const response = await fetch("connection.php", {
+                 method: "POST",
+                 body: formData,
+                 headers: { "Accept": "application/json" }
+             });
 
-        const text = await response.text();
-        console.log("Respuesta cruda del servidor:", text);
+             // Si el servidor devuelve HTML o vacío, esto lanzará error:
+             const result = await response.json();
 
-        let result;
-        try {
-            result = JSON.parse(text);
-        } catch (e) {
-            alert("El servidor no devolvió JSON válido. Revisa consola.");
-            return;
-        }
+             if (result && result.success) {
+                 //alert(result.message + result.data.id_documento);
 
-        if (result.success) {
-            alert(result.message);
-            //  formulario.reset();
-            document.getElementById("idGenerado").value = result.data.id_documento;
-            botonGuardar.textContent = "Guardar";
+                 formulario.reset();
+                 var idGenEl = document.getElementById("idGenerado");
+                 if (idGenEl) idGenEl.value = result.data.id_documento;
+                 if (botonGuardar) botonGuardar.textContent = "Guardar";
 
-            // 🔹 Se conservan registros anteriores
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-        <td>${result.data.id_documento}</td>
-        <td>${result.data.fh_emision}</td>
-        <td>${result.data.descripcion}</td>
-        <td>${result.data.maquina}</td>
-        <td>${result.data.solicitante}</td>
-        <td>${result.data.paro}</td>
-      `;
-            tabla.appendChild(fila);
-
-            // 🔗 Redirigir a otra página con el número de orden en la URL
-            window.location.href = `tecnicos.html?orden=${result.data.id_documento}`;
-
-        } else {
-            alert("Error: " + result.message);
-        }
-    });
-});
+                 if (tabla) {
+                     const fila = document.createElement("tr");
+                     fila.innerHTML =
+                         "<td>" + result.data.id_documento + "</td>" +
+                         "<td>" + result.data.fh_emision + "</td>" +
+                         "<td>" + result.data.descripcion + "</td>" +
+                         "<td>" + result.data.maquina + "</td>" +
+                         "<td>" + result.data.solicitante + "</td>" +
+                         "<td>" + result.data.paro + "</td>";
+                     tabla.appendChild(fila);
+                 }
+                 alert("generado una orden de trabajo con ID: " + result.data.id_documento + "en la maquina: " + result.data.maquina);
+                 // Redirigir si lo deseas:
+                 // window.location.href = "tecnicos.html?orden=" + result.data.id_documento;
+             } else {
+                 alert("Error: " + (result && result.message ? result.message : "Respuesta inválida del servidor"));
+                 console.warn("Respuesta de error:", result);
+             }
+         } catch (err) {
+             console.error("Error procesando la respuesta:", err);
+             alert("Hubo un problema con la respuesta del servidor. Revisa la pestaña Network.");
+         }
+     });
+ });

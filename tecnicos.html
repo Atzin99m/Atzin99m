@@ -27,40 +27,40 @@
                         Clasura de Órdenes de Trabajo de Mantenimiento
                     </span>
                 </div>
-                <div class="card-body ">
-                    <form id="formTecnico " method="POST " action="tecnicos.php ">
-                        <div class="row ">
-                            <div class="col-12 col-md-4 mb-3 ">
-                                <label class="form-label ">No Orden: <input type="number " name="no_orden "
-                                                                 id="no_orden " class="form-control "></label>
+                <div class="card-body">
+                    <form id="formTecnico" method="POST" action="tecnicos.php">
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <label class="form-label">No Orden: <input type="number" name="no_orden"
+                                                                 id="no_orden" class="form-control"></label>
 
-                                <input type="hidden " name="id " id="id " value="0 ">
+                                <input type="hidden" name="id" id="id" value="">
 
                             </div>
                             <!--div class="col-12 col-md-4 mb-3 ">
                                 <textarea name="descripcion " id="descripcion " class="form-control "></textarea>
                             </div-->
 
-                            <label class="form-label ">Nombre: <textarea id="Nombre " name="Nombre " class="form-control " >
+                            <label class="form-label">Nombre: <textarea id="Nombre" name="Nombre" class="form-control">
                                 </textarea></label>
                         </div>
-                        <div class="row ">
-                            <div class="col-12 col-md-6 mb-3 ">
-                                <label class="form-label ">Turno: <input type="text " name="turno " id="turno " class="form-control "></label>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label class="form-label">Turno: <input type="text" name="turno" id="turno" class="form-control"></label>
                             </div>
-                            <div class="col-12 col-md-6 mb-3 ">
-                                <label class="form-label ">Tipo de falla: <input type="text " name="Tipo " id="Tipo " class="form-control " readonly></label>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label class="form-label">Tipo de falla: <input type="text" name="Tipo" id="Tipo" class="form-control" readonly></label>
                             </div>
                         </div>
 
                 </div>
-                <div class="row ">
-                    <div class="col-12 col-md-6 mb-3 ">
-                        <label class="form-label ">Recepción: <input type="datetime-local " name="Recepcion " 
-                                    id="Recepcion " class="form-control " readonly></label>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Recepción: <input type="datetime-local" name="Recepcion"
+                                    id="Recepcion" class="form-control" readonly></label>
                         <script>
-                            document.addEventListener("DOMContentLoaded ", () => {
-                                const input = document.getElementById("Recepcion ");
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const input = document.getElementById("Recepcion");
                                 const ahora = new Date();
                                 const offset = ahora.getTimezoneOffset();
                                 const ajustada = new Date(ahora.getTime() - (offset * 60000));
@@ -68,12 +68,12 @@
                             });
                         </script>
                     </div>
-                    <div class="col-12 col-md-6 mb-3 ">
-                        <label class="form-label ">Recep Máquina: <input type="datetime-local "
-                                     name="recep_maquina " id="recep_maquina " class="form-control " readonly></label>
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Recep Máquina: <input type="datetime-local"
+                                     name="recep_maquina" id="recep_maquina" class="form-control" readonly></label>
                         <script>
-                            document.addEventListener("DOMContentLoaded ", () => {
-                                const input = document.getElementById("recep_maquina ");
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const input = document.getElementById("recep_maquina");
                                 const ahora = new Date();
                                 const offset = ahora.getTimezoneOffset();
                                 const ajustada = new Date(ahora.getTime() - (offset * 60000));
@@ -83,10 +83,10 @@
                     </div>
                 </div>
                 <div>
-                    <label class="form-label ">Hora Inicio: <input type="time " name="Hr_ini " id="Hr_ini " class="form-control " step="60 " readonly></label>
+                    <label class="form-label">Hora Inicio: <input type="time" name="Hr_ini" id="Hr_ini" class="form-control" step="60" readonly></label>
                     <script>
-                        document.addEventListener("DOMContentLoaded ", () => {
-                            const horaInicioInput = document.getElementById("Hr_ini ");
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const horaInicioInput = document.getElementById("Hr_ini");
 
                             if (horaInicioInput) {
                                 const ahora = new Date();
@@ -98,17 +98,17 @@
                             }
                         });
                     </script>
-                    <label class="form-label "><!---Hora Fin:--> <input type="time " name="Hr_Fin " id="Hr_Fin " class="form-control d-none " readonly>
-</label>
+                    <label class="form-label"><!---Hora Fin:--><input type="time" name="Hr_Fin" id="Hr_Fin" class="form-control d-none" readonly>
+                            </label>
 
 
-                    <label class="form-label ">Tiempo Extra: <input type="time " name="t_extra " id="t_extra " class="form-control " ></label></div>
+                    <label class="form-label">Tiempo Extra: <input type="time" name="t_extra" id="t_extra" class="form-control"></label></div>
 
 
-                <label class="form-label ">Trabajo Realizado: <textarea name="t_realizado " id="t_realizado " class="form-control "></textarea>
+                <label class="form-label">Trabajo Realizado: <textarea name="t_realizado" id="t_realizado" class="form-control"></textarea>
                 </label>
 
-                <label class="form-label ">Observaciones: <textarea name="observaciones " id="observaciones " class="form-control ">
+                <label class="form-label">Observaciones: <textarea name="observaciones" id="observaciones" class="form-control">
 
                             </textarea></label>
                 <!--div class="mb-3 ">
@@ -118,14 +118,14 @@
                                                                 </select>
                             </label>
             </div-->
-                <button type="submit " id="cerrar " name="Guardar y cerrar " class="btn btn-primary w-100 ">Cerrar</button>
+                <button type="submit" id="cerrar" name="Guardar y cerrar" class="btn btn-primary w-100">Cerrar</button>
                 </form>
                 <hr>
-                <span class="flex-grow-1 " style="font-size: 1.3rem; font-weight: bold; color: #00f; text-shadow: 1px 1px 2px #000; ">
+                <span class="flex-grow-1" style="font-size: 1.3rem; font-weight: bold; color: #00f; text-shadow: 1px 1px 2px #000;">
             <h2>Registros:</h2></span>
-                <div class="table-responsive ">
-                    <table id="tablaTecnicos " class="table table-striped table-bordered ">
-                        <thead class="table-dark ">
+                <div class="table-responsive">
+                    <table id="tablaTecnicos" class="table table-striped table-bordered">
+                        <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -150,12 +150,11 @@
         </div>
     </div>
     </div>
-    <script src="exportar.js "></script>
-    <script src="tecnicos.js "></script>
-    <script src="script2.js "></script>
-    </script>
+    <script src="exportar.js"></script>
+    <script src="tecnicos.js"></script>
+    <script src="script2.js"></script>
 
-    <!--<script src="ordenes.js "></script>-->
+    <!--<script src="ordenes.js"></script>-->
 </body>
 
 </html>

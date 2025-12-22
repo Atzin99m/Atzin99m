@@ -1,4 +1,5 @@
-<?php
+<?php 
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -72,9 +73,79 @@ VALUES (?, ?, ?, ?, ?, ?, ?)");
             "maquina"      => $maquina,
             "solicitante"  => $solicitante,
             "paro"         => $paro,
-            "Estatus"      => $estatus
-        ]
+            "Estatus"      => $estatus 
+           
+        ] 
+       
     ]);
+// ===============================
+// CREAR MENSAJE DE ORDEN DE MANTENIMIENTO (SIN EJECUTAR WHATSAPP)
+// ===============================
+$id = $stmt->insert_id;
+// Generar nombre del archivo con el ID o folio de la orden
+$marchivo1 = "OT-MANTTO-" . $id;  // Usa aquí el ID real de tu orden
+
+// Ruta donde se guardará el archivo
+$march = "//192.168.0.96/Proyectos_Cazel/Archivos/Entrada/" . $marchivo1 . ".csv";
+
+// Crear archivo CSV
+$marchivo = fopen($march, 'w');
+
+if ($marchivo === false) {
+   die('Error al crear el archivo del mensaje.');
+}
+
+// Contenido del mensaje
+$mproceso = "Orden_Mantenimiento";
+$mmensaje = "Se generó orden de mantenimiento para la máquina: " . $maquina .
+                    " con  Folio: " . $id;
+// Redirigir a la página de técnicos con el ID de la orden
+echo "<a href='//tecnicos.html?orden=" . $id . "'>Ver Orden</a>";
+
+// Guardar información en el CSV
+$mdatos =[$mmensaje, $mproceso];
+fputcsv($marchivo, $mdatos, ',');
+
+// Cerrar archivo
+fclose($marchivo);
+
+// Guardar referencia del archivo en sesión (para usarlo en otra página)
+$_SESSION['archivo_mensaje'] = $marchivo1;
+
+// Alerta de confirmación
+//echo "<script>alert('Orden guardada y mensaje generado correctamente. Folio: $id');</script>";
+
+
+
+
+
+    /*$id = $stmt->insert_id;
+    $marchivo1 = "Orden_MNTTO-".$fecha."-".$maquina."-".$id.".csv";
+     $march = '\\\\192.168.0.96\\Proyectos_Cazel\\Archivos\\Entrada\\' . $marchivo1;
+    $file1 = fopen(filename: $march, mode: 'wb');
+    // Verificar si se pudo abrir el archivo
+                                if ($file1 === false) {
+                                   die('Error al abrir el archivo: ' . $march);
+                                } 
+                                  // Escribir los datos en el archivo CSV
+                                $mproceso = "Orden_Mantenimiento." ;
+                                //$mproceso = "Prueba"; 
+                                $url_redirigir = "//tecnicos.html";
+                                $mmensaje = "Se Genero una orden de trabajo en la maquina" . $maquina . " y 
+                                 con folio: " . $url_redirigir . "?orden=" . $id ;
+
+
+                                $mdatos = [$mmensaje, $mproceso];
+                                fputcsv($file1,$mdatos, separator: ',');
+                                // Cerrar el archivo
+                                fclose($file1);                  
+
+                               $archivo_exe = "\\\\192.168.0.96\\Proyectos_Cazel\\whatsapp.exe"; // Ruta completa al archivo .exe
+                               $archivo_exe = "c:/Proyectos_Cazel/whatsapp.exe"; // Ruta completa al archivo .exe                  
+                            //   $output = []; shell_exec($archivo_exe);
+                              // echo $output; // Muestra la salida del comando, si la hay      
+                              // $return_var = 0;
+                              exec($archivo_exe, $output, $return_var);*/
 } else {
     echo json_encode([
         "success" => false,

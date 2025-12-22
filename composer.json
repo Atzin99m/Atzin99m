@@ -6,13 +6,10 @@
             "Becsistemas\\ProyectoOrdenmntto\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Atzin"
-        }
-    ],
+    "authors": [{
+        "name": "Atzin"
+    }],
     "require": {
-        "phpoffice/phpexcel": "*",
         "phpoffice/phpspreadsheet": "^4.4"
     }
 }
